@@ -4,11 +4,11 @@
 //!
 //! ## Traits
 //!
-//! - [`Endpoint`] — Base trait for all endpoints (field selection, filtering,
+//! - [`Endpoint`] - Base trait for all endpoints (field selection, filtering,
 //!   sorting, pagination, expansion)
-//! - [`Searchable`] — For endpoints that support IGDB's built-in search
+//! - [`Searchable`] - For endpoints that support IGDB's built-in search
 //!   (Games, Platforms, Characters, Collections, Themes)
-//! - [`NameFilterable`] — For endpoints without search support, provides
+//! - [`NameFilterable`] - For endpoints without search support, provides
 //!   a `find_by_name` convenience method using a `where` clause
 //!
 //! ## IGDB Search Support

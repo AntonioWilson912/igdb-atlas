@@ -59,7 +59,7 @@ pub const IGDB_BASE_URL: &str = "https://api.igdb.com/v4";
 ///
 /// # Cloning
 ///
-/// `IGDBClient` is cheap to clone — all internal state is reference-counted.
+/// `IGDBClient` is cheap to clone - all internal state is reference-counted.
 /// This makes it easy to share across tasks without `Arc<Mutex<_>>`.
 ///
 /// # Examples
@@ -89,7 +89,7 @@ pub struct IGDBClient {
 }
 
 impl IGDBClient {
-    // ── Construction ────────────────────────────────────────────────
+    // Construction
 
     /// Creates a new `IGDBClient` from the given configuration.
     ///

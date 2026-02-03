@@ -13,18 +13,36 @@
 //!
 //! ## Module Structure
 //!
-//! - [`auth`] — Twitch OAuth 2.0 authentication and token management
-//! - [`client`] — Core HTTP client, configuration, and rate limiting
-//! - [`error`] — Custom error types
-//! - [`query`] — Apicalypse query builder
+//! - [`auth`] - Twitch OAuth 2.0 authentication and token management
+//! - [`client`] - Core HTTP client, configuration, and rate limiting
+//! - [`error`] - Custom error types
+//! - [`query`] - Apicalypse query builder
 
 pub mod auth;
 pub mod client;
 pub mod endpoints;
 pub mod error;
+pub mod models;
 pub mod query;
 
+// Infrastructure
 pub use client::IGDBClient;
 pub use client::config::ClientConfig;
 pub use error::IGDBError;
 pub use query::QueryBuilder;
+
+// Primary domain-model
+pub use models::age_ratings::AgeRating;
+pub use models::characters::Character;
+pub use models::collections::Collection;
+pub use models::companies::Company;
+pub use models::date_formats::DateFormat;
+pub use models::events::Event;
+pub use models::franchises::Franchise;
+pub use models::games::Game;
+pub use models::languages::Language;
+pub use models::networks::NetworkType;
+pub use models::platforms::Platform;
+pub use models::searches::Search;
+pub use models::themes::Theme;
+pub use models::websites::Website;

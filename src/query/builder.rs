@@ -19,9 +19,9 @@
 //!
 //! Nested objects are expanded by using dot notation in the `fields` clause:
 //!
-//! - `platforms.*` — all sub-fields of platforms
-//! - `platforms.name,platforms.abbreviation` — specific sub-fields
-//! - `involved_companies.company.name` — deep nesting
+//! - `platforms.*` - all sub-fields of platforms
+//! - `platforms.name,platforms.abbreviation` - specific sub-fields
+//! - `involved_companies.company.name` - deep nesting
 //!
 //! Without expansion, nested references return as bare integer IDs.
 //!
@@ -235,7 +235,7 @@ impl QueryBuilder {
     ///
     /// The expanded fields are automatically added to the `fields` clause
     /// in the final query. You do **not** need to include the parent field
-    /// in your `select()` call — it will be added.
+    /// in your `select()` call - it will be added.
     ///
     /// # Examples
     ///

@@ -176,7 +176,7 @@ impl RateLimiter {
                 return Ok(response);
             }
 
-            // Rate limited — increment attempt
+            // Rate limited - increment attempt
             attempt += 1;
             if attempt >= self.max_attempts {
                 let delay = self.compute_backoff_delay(attempt);
