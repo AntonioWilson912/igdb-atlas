@@ -1,0 +1,29 @@
+[package]
+name = "igdb-atlas"
+version = "0.1.0"
+edition = "2024"
+description = "An asynchronous wrapper for the IGDB v4 video game database API"
+homepage = "https://github.com/AntonioWilson912/igdb-atlas"
+repository = "https://github.com/AntonioWilson912/igdb-atlas"
+documentation = "https://docs.rs/igdb_atlas"
+readme = "README.md"
+license = "MIT/Apache-2.0"
+keywords = ["igdb", "video-game", "api", "async", "twitch"]
+categories = ["api-bindings", "web-apis"]
+
+[dependencies]
+reqwest = { version = "0.11", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1"
+parking_lot = "0.12"
+log = "0.4"
+futures = "0.3"
+rand = "0.8"
+
+[dev-dependencies]
+mockito = "1"
+tokio = { version = "1", features = ["full"] }
+serde_json = "1"
