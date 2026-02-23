@@ -1,6 +1,6 @@
 [package]
 name = "igdb-atlas"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 description = "An asynchronous wrapper for the IGDB v4 video game database API"
 homepage = "https://github.com/AntonioWilson912/igdb-atlas"
