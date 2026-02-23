@@ -35,9 +35,9 @@ use crate::{
         age_ratings::AgeRating,
         common::{GameRef, PlatformRef, ThemeRef},
         games::{
-            AlternativeName, ExternalGame, GameEngine, GameLocalization, GameMode,
-            GameStatusRecord, GameType, GameVideo, Genre, InvolvedCompany, Keyword,
-            MultiplayerMode, PlayerPerspective, ReleaseDate,
+            AlternativeName, ExternalGame, GameEngine, GameLocalization, GameMode, GameStatus,
+            GameType, GameVideo, Genre, InvolvedCompany, Keyword, MultiplayerMode,
+            PlayerPerspective, ReleaseDate,
         },
         id_or_object::{FromId, deserialize_id_or_object, deserialize_id_or_object_vec},
         imagery::{Artwork, Cover, Screenshot, UrlFor},
@@ -139,7 +139,7 @@ pub struct Game {
 
     /// The status of the game's release.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
-    pub game_status: Option<GameStatusRecord>,
+    pub game_status: Option<GameStatus>,
 
     /// The type of game.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]

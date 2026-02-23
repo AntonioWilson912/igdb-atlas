@@ -56,7 +56,7 @@ pub struct ReleaseDate {
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub date_format: Option<DateFormat>,
 
-    /// Reference ID to the game.
+    /// The game of the release.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 

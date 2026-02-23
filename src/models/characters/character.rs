@@ -43,11 +43,11 @@ pub struct Character {
     #[serde(default)]
     pub akas: Option<Vec<String>>,
 
-    /// Reference ID to the `/character_genders` endpoint.
+    /// The gender of the character.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub character_gender: Option<CharacterGenderRecord>,
 
-    /// Reference ID to the `/character_species` endpoint.
+    /// The species of the character.
     #[serde(default)]
     pub character_species: Option<u64>,
 
@@ -71,8 +71,7 @@ pub struct Character {
     #[serde(default, deserialize_with = "deserialize_id_or_object_vec")]
     pub games: Option<Vec<Game>>,
 
-    /// Reference ID to the character's portrait image
-    /// (see [`crate::models::imagery::CharacterMugShot`]).
+    /// An image depicting a character.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub mug_shot: Option<CharacterMugShot>,
 

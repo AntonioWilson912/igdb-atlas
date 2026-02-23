@@ -42,8 +42,7 @@ pub struct InvolvedCompany {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference to the company. Bare ID when unexpanded, full
-    /// [`CompanyRef`] object when expanded.
+    /// Reference to the company.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub company: Option<CompanyRef>,
 
@@ -55,7 +54,7 @@ pub struct InvolvedCompany {
     #[serde(default)]
     pub developer: Option<bool>,
 
-    /// Reference ID to the game.
+    /// The game associated with the involved company.
     #[serde(default)]
     pub game: Option<u64>,
 

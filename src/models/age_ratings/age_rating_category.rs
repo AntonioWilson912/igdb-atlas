@@ -36,7 +36,7 @@ pub struct AgeRatingCategory {
     #[serde(default)]
     pub created_at: Option<i64>,
 
-    /// Reference ID to the `/age_rating_organizations` endpoint.
+    /// The rating organization.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub organization: Option<AgeRatingOrganization>,
 

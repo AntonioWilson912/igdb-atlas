@@ -43,15 +43,15 @@ pub struct GameVersion {
     #[serde(default)]
     pub created_at: Option<i64>,
 
-    /// Feature IDs describing what makes each version different.
+    /// Features and descriptions of what makes each version/edition different from the main game.
     #[serde(default, deserialize_with = "deserialize_id_or_object_vec")]
     pub features: Option<Vec<GameVersionFeature>>,
 
-    /// Reference ID to the main game these versions are of.
+    /// The game these versions/editions are of.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 
-    /// Game IDs for the versions and editions.
+    /// Game versions and editions.
     #[serde(default, deserialize_with = "deserialize_id_or_object_vec")]
     pub games: Option<Vec<Game>>,
 

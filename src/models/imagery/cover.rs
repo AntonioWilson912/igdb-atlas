@@ -48,12 +48,11 @@ pub struct Cover {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference ID to the game this cover belongs to.
-    /// `None` when the cover belongs to a game localization instead.
+    /// The game this cover belongs to.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<GameRef>,
 
-    /// Reference ID to the game localization this cover belongs to.
+    /// The game localization this cover belongs to.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game_localization: Option<GameLocalizationRef>,
 

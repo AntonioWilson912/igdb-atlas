@@ -222,9 +222,6 @@ pub trait NameFilterable: Endpoint {
     /// Filters results by name using a case-insensitive contains match.
     ///
     /// Generates: `where name ~ *"term"*;`
-    ///
-    /// This is the recommended alternative to `search()` for endpoints
-    /// where IGDB does not support the `search` keyword.
     fn find_by_name(mut self, name: &str) -> Self {
         let clause = format!("name ~ *\"{}\"*", name);
         let b = self.builder_mut().clone().where_clause(&clause);

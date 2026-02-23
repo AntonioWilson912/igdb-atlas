@@ -44,7 +44,7 @@ pub struct Screenshot {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference ID to the game this screenshot belongs to.
+    /// The game this screenshot belongs to.
     #[serde(default)]
     pub game: Option<u64>,
 

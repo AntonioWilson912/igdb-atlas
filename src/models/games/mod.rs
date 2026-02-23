@@ -70,7 +70,7 @@ pub use game_engine::GameEngine;
 pub use game_localization::GameLocalization;
 pub use game_mode::GameMode;
 pub use game_release_format::GameReleaseFormat;
-pub use game_status::GameStatusRecord;
+pub use game_status::GameStatus;
 pub use game_time_to_beat::GameTimeToBeat;
 pub use game_type::GameType;
 pub use game_version::GameVersion;

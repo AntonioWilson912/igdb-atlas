@@ -70,7 +70,7 @@ pub struct Platform {
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub platform_logo: Option<PlatformLogo>,
 
-    /// Reference ID to the `/platform_types` endpoint.
+    /// The type of the platform.
     #[serde(default)]
     pub platform_type: Option<u64>,
 

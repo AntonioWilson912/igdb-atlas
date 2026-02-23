@@ -66,7 +66,7 @@ pub struct Collection {
     #[serde(default)]
     pub slug: Option<String>,
 
-    /// Reference ID to the collection type.
+    /// The type of collection.
     #[serde(default)]
     pub r#type: Option<CollectionType>,
 

@@ -51,15 +51,15 @@ pub struct LanguageSupport {
     #[serde(default)]
     pub created_at: Option<i64>,
 
-    /// Reference ID to the game.
+    /// The game.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<GameRef>,
 
-    /// Reference ID to the `/languages` endpoint.
+    /// The language.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub language: Option<Language>,
 
-    /// Reference ID to the `/language_support_types` endpoint.
+    /// The type of language support.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub language_support_type: Option<LanguageSupportType>,
 

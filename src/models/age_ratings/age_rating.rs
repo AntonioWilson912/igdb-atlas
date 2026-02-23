@@ -37,11 +37,11 @@ pub struct AgeRating {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference ID to the `/age_rating_organizations` endpoint.
+    /// The organization that has issued a specific rating.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub organization: Option<AgeRatingOrganization>,
 
-    /// Reference ID to the `/age_rating_categories` endpoint.
+    /// The category of a rating.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub rating_category: Option<AgeRatingCategory>,
 

@@ -47,8 +47,7 @@ pub struct Company {
     #[serde(default)]
     pub change_date: Option<i64>,
 
-    /// Reference ID to the `/date_formats` endpoint describing the
-    /// precision of [`change_date`](Self::change_date).
+    /// The format of the change date.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub change_date_format: Option<DateFormat>,
 
@@ -72,11 +71,11 @@ pub struct Company {
     #[serde(default)]
     pub description: Option<String>,
 
-    /// Game IDs this company has developed.
+    /// An array of games that a company has developed.
     #[serde(default, deserialize_with = "deserialize_id_or_object_vec")]
     pub developed: Option<Vec<GameRef>>,
 
-    /// Reference ID to the company's logo image.
+    /// The company's logo.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub logo: Option<CompanyLogo>,
 
@@ -84,11 +83,11 @@ pub struct Company {
     #[serde(default)]
     pub name: Option<String>,
 
-    /// Parent company ID (if this company is a subsidiary).
+    /// A company with a controlling interest in a specific company.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub parent: Option<CompanyRef>,
 
-    /// Game IDs this company has published.
+    /// An array of games that a company has published.
     #[serde(default, deserialize_with = "deserialize_id_or_object_vec")]
     pub published: Option<Vec<Game>>,
 
@@ -100,12 +99,11 @@ pub struct Company {
     #[serde(default)]
     pub start_date: Option<i64>,
 
-    /// Reference ID to the `/date_formats` endpoint describing the
-    /// precision of [`start_date`](Self::start_date).
+    /// The format of the start date.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub start_date_format: Option<DateFormat>,
 
-    /// Reference ID to the company's status (active, defunct, etc.).
+    /// The status of the company.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub status: Option<CompanyStatus>,
 
@@ -117,7 +115,7 @@ pub struct Company {
     #[serde(default)]
     pub url: Option<String>,
 
-    /// Website IDs associated with this company.
+    /// The company's official websites.
     #[serde(default, deserialize_with = "deserialize_id_or_object_vec")]
     pub websites: Option<Vec<CompanyWebsite>>,
 }

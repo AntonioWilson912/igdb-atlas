@@ -52,7 +52,7 @@ pub struct GameEngine {
     #[serde(default)]
     pub description: Option<String>,
 
-    /// Reference ID to the game engine's logo image.
+    /// Logo of the game engine.
     #[serde(default)]
     pub logo: Option<GameEngineLogo>,
 

@@ -39,7 +39,7 @@ pub struct GameLocalization {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference ID to the cover image for this localization.
+    /// T cover image for this localization.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub cover: Option<Cover>,
 
@@ -47,7 +47,7 @@ pub struct GameLocalization {
     #[serde(default)]
     pub created_at: Option<i64>,
 
-    /// Reference ID to the parent game.
+    /// The game the localization belongs to.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 
@@ -55,7 +55,7 @@ pub struct GameLocalization {
     #[serde(default)]
     pub name: Option<String>,
 
-    /// Reference ID to the region for this localization.
+    /// The region of the localization.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub region: Option<Region>,
 

@@ -6,10 +6,10 @@
 //!
 //! ```rust
 //! use serde_json;
-//! use igdb_atlas::models::games::GameStatusRecord;
+//! use igdb_atlas::models::games::GameStatus;
 //!
 //! let json = r#"{"id": 0, "status": "Released"}"#;
-//! let record: GameStatusRecord = serde_json::from_str(json).unwrap();
+//! let record: GameStatus = serde_json::from_str(json).unwrap();
 //! assert_eq!(record.display_name(), "Released");
 //! ```
 
@@ -19,7 +19,7 @@ use crate::models::{id_or_object::FromId, timestamp::format_timestamp};
 
 /// A game-status record.
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct GameStatusRecord {
+pub struct GameStatus {
     /// Unique status record identifier.
     pub id: u64,
 
@@ -40,14 +40,14 @@ pub struct GameStatusRecord {
     pub updated_at: Option<i64>,
 }
 
-impl GameStatusRecord {
+impl GameStatus {
     /// Returns the status name or `"Unknown Status"`.
     pub fn display_name(&self) -> &str {
         self.status.as_deref().unwrap_or("Unknown Status")
     }
 }
 
-impl Default for GameStatusRecord {
+impl Default for GameStatus {
     fn default() -> Self {
         Self {
             id: 0,
@@ -59,7 +59,7 @@ impl Default for GameStatusRecord {
     }
 }
 
-impl FromId for GameStatusRecord {
+impl FromId for GameStatus {
     fn from_id(id: u64) -> Self {
         Self {
             id,
@@ -68,7 +68,7 @@ impl FromId for GameStatusRecord {
     }
 }
 
-impl std::fmt::Display for GameStatusRecord {
+impl std::fmt::Display for GameStatus {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "GameStatus [{}]", self.id)?;
         if let Some(ref status) = self.status {

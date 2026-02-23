@@ -96,11 +96,11 @@ pub struct GameVersionFeatureValue {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference ID to the game this value refers to.
+    /// The version/edition this value refers to.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 
-    /// Reference ID to the game version feature.
+    /// The game version feature.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game_feature: Option<GameVersionFeature>,
 

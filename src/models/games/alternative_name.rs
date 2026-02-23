@@ -43,7 +43,7 @@ pub struct AlternativeName {
     #[serde(default)]
     pub comment: Option<String>,
 
-    /// Reference ID to the game this alternative name belongs to.
+    /// The game this alternative name belongs to.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 

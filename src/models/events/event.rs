@@ -58,7 +58,7 @@ pub struct Event {
     #[serde(default)]
     pub end_time: Option<i64>,
 
-    /// Reference ID to the event's logo image.
+    /// Logo of the event.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub event_logo: Option<EventLogo>,
 

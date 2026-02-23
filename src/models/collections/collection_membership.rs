@@ -52,7 +52,7 @@ pub struct CollectionMembership {
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 
-    /// Reference ID to the collection membership type.
+    /// The type of collection membership.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub r#type: Option<CollectionMembershipType>,
 

@@ -38,7 +38,7 @@ pub struct GameVideo {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference ID to the game this video is associated with.
+    /// The game this video is associated with.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 

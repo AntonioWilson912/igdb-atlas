@@ -53,15 +53,15 @@ pub struct ExternalGame {
     #[serde(default)]
     pub created_at: Option<i64>,
 
-    /// Reference ID to the `/external_game_sources` endpoint.
+    /// The source of the external game.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub external_game_source: Option<ExternalGameSource>,
 
-    /// Reference ID to the IGDB game.
+    /// The IGDB ID of the game.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 
-    /// Reference ID to the `/game_release_formats` endpoint.
+    /// The release format of the external game.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game_release_format: Option<GameReleaseFormat>,
 
@@ -69,7 +69,7 @@ pub struct ExternalGame {
     #[serde(default)]
     pub name: Option<String>,
 
-    /// Reference ID to the platform.
+    /// The platform of the external game product.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub platform: Option<Platform>,
 

@@ -24,7 +24,13 @@
 
 use serde::{Deserialize, Serialize};
 
-use crate::models::id_or_object::FromId;
+use crate::{
+    Game,
+    models::{
+        id_or_object::{FromId, deserialize_id_or_object},
+        websites::WebsiteType,
+    },
+};
 
 /// A website URL associated with a game.
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -36,17 +42,17 @@ pub struct Website {
     #[serde(default)]
     pub checksum: Option<String>,
 
-    /// Reference ID to the game this website is associated with.
-    #[serde(default)]
-    pub game: Option<u64>,
+    /// The game this website is associated with.
+    #[serde(default, deserialize_with = "deserialize_id_or_object")]
+    pub game: Option<Game>,
 
     /// Whether this website is a trusted / verified source.
     #[serde(default)]
     pub trusted: Option<bool>,
 
-    /// Reference ID to the `/website_types` endpoint.
-    #[serde(default)]
-    pub r#type: Option<u64>,
+    /// The website type associated with the website.
+    #[serde(default, deserialize_with = "deserialize_id_or_object")]
+    pub r#type: Option<WebsiteType>,
 
     /// The website address (URL).
     #[serde(default)]
@@ -97,8 +103,8 @@ impl std::fmt::Display for Website {
         if let Some(ref url) = self.url {
             write!(f, " {}", url)?;
         }
-        if let Some(type_id) = self.r#type {
-            write!(f, " (type={})", type_id)?;
+        if let Some(ref r#type) = self.r#type {
+            write!(f, " (type={})", r#type)?;
         }
         if self.trusted == Some(true) {
             write!(f, " [trusted]")?;

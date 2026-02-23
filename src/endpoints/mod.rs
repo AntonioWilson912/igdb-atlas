@@ -114,4 +114,19 @@ macro_rules! define_endpoint {
     };
 }
 
+pub mod age_ratings;
+pub mod characters;
+pub mod collections;
+pub mod companies;
+pub mod date_formats;
+pub mod events;
+pub mod franchises;
+pub mod games;
+pub mod imagery;
+pub mod languages;
+pub mod networks;
+pub mod platforms;
+pub mod searches;
+pub mod themes;
 pub mod traits;
+pub mod websites;

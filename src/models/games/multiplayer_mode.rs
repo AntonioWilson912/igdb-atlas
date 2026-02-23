@@ -50,7 +50,7 @@ pub struct MultiplayerMode {
     #[serde(default)]
     pub dropin: Option<bool>,
 
-    /// Reference ID to the game this mode belongs to.
+    /// The game this multiplayer mode is associated with.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub game: Option<Game>,
 
@@ -82,7 +82,7 @@ pub struct MultiplayerMode {
     #[serde(default)]
     pub onlinemax: Option<u32>,
 
-    /// Reference ID to the platform this mode applies to.
+    /// The platform this multiplayer mode refers to.
     #[serde(default)]
     pub platform: Option<Platform>,
 
