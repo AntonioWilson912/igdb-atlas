@@ -53,6 +53,9 @@ pub struct Search {
     pub collection: Option<Collection>,
 
     /// The company associated with the object.
+    ///
+    /// > **Note**: The IGDB docs list this field, but the /companies
+    /// > endpoint is not searchable. Included for spec completeness.
     #[serde(default, deserialize_with = "deserialize_id_or_object")]
     pub company: Option<Company>,
 

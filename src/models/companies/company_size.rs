@@ -1,31 +1,31 @@
-//! # Company Status Model
+//! # Company Size Model
 //!
-//! Represents a company status from the IGDB v4
-//! `/company_statuses` endpoint.
+//! Represents a company size from the IGDB v4
+//! `/company_sizes` endpoint.
 //!
 //! # Examples
 //!
 //! ```rust
 //! use serde_json;
-//! use igdb_atlas::models::companies::CompanyStatus;
+//! use igdb_atlas::models::companies::CompanySize;
 //!
 //! let json = r#"{
-//!     "id": 3,
-//!     "name": "renamed"
+//!     "id": 2,
+//!     "name": "11-50 employees"
 //! }"#;
 //!
-//! let company_status: CompanyStatus = serde_json::from_str(json).unwrap();
-//! assert_eq!(company_status.name, Some("renamed".to_string()));
+//! let company_size: CompanySize = serde_json::from_str(json).unwrap();
+//! assert_eq!(company_size.name, Some("11-50 employees".to_string()));
 //! ```
 
 use serde::{Deserialize, Serialize};
 
 use crate::models::{id_or_object::FromId, timestamp::format_timestamp};
 
-/// A company status.
+/// A company size record.
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct CompanyStatus {
-    /// Unique company status identifier.
+pub struct CompanySize {
+    /// Unique company size identifier.
     pub id: u64,
 
     /// SHA-1 checksum / hash of the object.
@@ -36,7 +36,7 @@ pub struct CompanyStatus {
     #[serde(default)]
     pub created_at: Option<i64>,
 
-    /// The name of the company status.
+    /// The name of the company size.
     #[serde(default)]
     pub name: Option<String>,
 
@@ -45,9 +45,14 @@ pub struct CompanyStatus {
     pub updated_at: Option<i64>,
 }
 
-impl CompanyStatus {}
+impl CompanySize {
+    /// Returns the company size name or `"Unknown Company Size"`.
+    pub fn display_name(&self) -> &str {
+        self.name.as_deref().unwrap_or("Unknown Company Size")
+    }
+}
 
-impl Default for CompanyStatus {
+impl Default for CompanySize {
     fn default() -> Self {
         Self {
             id: 0,
@@ -59,7 +64,7 @@ impl Default for CompanyStatus {
     }
 }
 
-impl FromId for CompanyStatus {
+impl FromId for CompanySize {
     fn from_id(id: u64) -> Self {
         Self {
             id,
@@ -68,9 +73,9 @@ impl FromId for CompanyStatus {
     }
 }
 
-impl std::fmt::Display for CompanyStatus {
+impl std::fmt::Display for CompanySize {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        writeln!(f, "CompanyStatus [{}]", self.id)?;
+        writeln!(f, "CompanySize [{}]", self.id)?;
         if let Some(ref name) = self.name {
             writeln!(f, "  Name: {}", name)?;
         }

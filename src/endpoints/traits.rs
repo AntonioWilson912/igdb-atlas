@@ -209,9 +209,9 @@ pub trait Searchable: Endpoint {
 ///     let config = ClientConfig::new("id", "secret");
 ///     let client = IGDBClient::new(config).await.unwrap();
 ///
-///     let companies = client.companies()
-///         .find_by_name("Nintendo")
-///         .select(&["name", "country"])
+///     let franchises = client.franchises()
+///         .find_by_name("The Blues Brothers")
+///         .select(&["name", "slug"])
 ///         .limit(5)
 ///         .execute()
 ///         .await

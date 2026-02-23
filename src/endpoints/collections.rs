@@ -28,7 +28,7 @@ define_endpoint! {
 
 define_endpoint! {
     /// `/collection_membership_types` - not searchable.
-    pub struct CollectionMembershipTypesEndpoint => "collection_membership_types", CollectionMembershipType
+    pub struct CollectionMembershipTypesEndpoint => "collection_membership_types", CollectionMembershipType, name_filterable
 }
 
 define_endpoint! {
@@ -38,7 +38,7 @@ define_endpoint! {
 
 define_endpoint! {
     /// `/collection_relation_types` - not searchable.
-    pub struct CollectionRelationTypesEndpoint => "collection_relation_types", CollectionRelationType
+    pub struct CollectionRelationTypesEndpoint => "collection_relation_types", CollectionRelationType, name_filterable
 }
 
 define_endpoint! {

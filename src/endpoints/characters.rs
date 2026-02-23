@@ -19,10 +19,10 @@ define_endpoint! {
 
 define_endpoint! {
     /// `/character_genders` - not searchable.
-    pub struct CharacterGendersEndpoint => "character_genders", CharacterGenderRecord
+    pub struct CharacterGendersEndpoint => "character_genders", CharacterGenderRecord, name_filterable
 }
 
 define_endpoint! {
     /// `/character_species` - not searchable.
-    pub struct CharacterSpeciesEndpoint => "character_species", CharacterSpeciesRecord
+    pub struct CharacterSpeciesEndpoint => "character_species", CharacterSpeciesRecord, name_filterable
 }

@@ -1,31 +1,27 @@
-//! # Company Status Model
+//! # Content Safety Rating Model
 //!
-//! Represents a company status from the IGDB v4
-//! `/company_statuses` endpoint.
+//! Represents a content safety rating from the
+//! IGDB v4 `/content_safety_ratings` endpoint.
 //!
 //! # Examples
 //!
 //! ```rust
 //! use serde_json;
-//! use igdb_atlas::models::companies::CompanyStatus;
+//! use igdb_atlas::models::games::ContentSafetyRating;
 //!
-//! let json = r#"{
-//!     "id": 3,
-//!     "name": "renamed"
-//! }"#;
-//!
-//! let company_status: CompanyStatus = serde_json::from_str(json).unwrap();
-//! assert_eq!(company_status.name, Some("renamed".to_string()));
+//! let json = r#"{"id": 1, "name": "E"}"#;
+//! let rating : ContentSafetyRating = serde_json::from_str(json).unwrap();
+//! assert_eq!(rating.display_name(), "E");
 //! ```
 
 use serde::{Deserialize, Serialize};
 
 use crate::models::{id_or_object::FromId, timestamp::format_timestamp};
 
-/// A company status.
+/// A content safety rating.
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct CompanyStatus {
-    /// Unique company status identifier.
+pub struct ContentSafetyRating {
+    /// Unique source identifier.
     pub id: u64,
 
     /// SHA-1 checksum / hash of the object.
@@ -36,7 +32,7 @@ pub struct CompanyStatus {
     #[serde(default)]
     pub created_at: Option<i64>,
 
-    /// The name of the company status.
+    /// The name of the content safety rating.
     #[serde(default)]
     pub name: Option<String>,
 
@@ -45,9 +41,14 @@ pub struct CompanyStatus {
     pub updated_at: Option<i64>,
 }
 
-impl CompanyStatus {}
+impl ContentSafetyRating {
+    /// Returns the rating name or `"Unknown Rating"`.
+    pub fn display_name(&self) -> &str {
+        self.name.as_deref().unwrap_or("Unknown Rating")
+    }
+}
 
-impl Default for CompanyStatus {
+impl Default for ContentSafetyRating {
     fn default() -> Self {
         Self {
             id: 0,
@@ -59,7 +60,7 @@ impl Default for CompanyStatus {
     }
 }
 
-impl FromId for CompanyStatus {
+impl FromId for ContentSafetyRating {
     fn from_id(id: u64) -> Self {
         Self {
             id,
@@ -68,22 +69,17 @@ impl FromId for CompanyStatus {
     }
 }
 
-impl std::fmt::Display for CompanyStatus {
+impl std::fmt::Display for ContentSafetyRating {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        writeln!(f, "CompanyStatus [{}]", self.id)?;
+        write!(f, "ContentSafetyRating [{}]", self.id)?;
         if let Some(ref name) = self.name {
-            writeln!(f, "  Name: {}", name)?;
-        }
-        if let Some(ts) = self.created_at {
-            if let Some(date) = format_timestamp(Some(ts)) {
-                writeln!(f, "  Added: {}", date)?;
-            }
+            write!(f, " {}", name)?;
         }
         if let Some(ts) = self.updated_at {
             if let Some(date) = format_timestamp(Some(ts)) {
-                writeln!(f, "  Updated: {}", date)?;
+                write!(f, " (updated {})", date)?;
             }
         }
-        Ok(())
+        writeln!(f)
     }
 }

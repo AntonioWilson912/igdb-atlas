@@ -6,8 +6,11 @@
 //! |--------|----------|-------------|
 //! | [`game`] | `/games` | The primary [`Game`] model |
 //! | [`alternative_name`] | `/alternative_names` | International / alternative titles |
+//! | [`content_safety_rating`] | `/content_safety_ratings` | The safety rating of content |
+//! | [`content_safety_rating_dimension`] | `/content_safety_rating_dimensions` | The safety rating dimension of content |
 //! | [`external_game`] | `/external_games` | Listings on external storefronts |
 //! | [`external_game_source`] | `/external_game_sources` | Storefront reference table |
+//! | [`game_content_safety_rating`] | `/game_content_safety_ratings` | The safety rating of game content |
 //! | [`game_engine`] | `/game_engines` | Video game engines |
 //! | [`game_localization`] | `/game_localizations` | Localized game info |
 //! | [`game_mode`] | `/game_modes` | Play modes (single / multiplayer) |
@@ -36,9 +39,12 @@
 //! [`crate::models::languages`].
 
 pub mod alternative_name;
+pub mod content_safety_rating;
+pub mod content_safety_rating_dimension;
 pub mod external_game;
 pub mod external_game_source;
 pub mod game;
+pub mod game_content_safety_rating;
 pub mod game_engine;
 pub mod game_localization;
 pub mod game_mode;
@@ -63,9 +69,12 @@ pub mod release_date_region;
 pub mod release_date_status;
 
 pub use alternative_name::AlternativeName;
+pub use content_safety_rating::ContentSafetyRating;
+pub use content_safety_rating_dimension::ContentSafetyRatingDimension;
 pub use external_game::ExternalGame;
 pub use external_game_source::ExternalGameSource;
 pub use game::Game;
+pub use game_content_safety_rating::GameContentSafetyRating;
 pub use game_engine::GameEngine;
 pub use game_localization::GameLocalization;
 pub use game_mode::GameMode;
